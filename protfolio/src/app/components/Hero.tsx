@@ -2,6 +2,42 @@ import React from "react";
 import Link from "next/link";
 import styles from "./Hero.module.css";
 
+const SOFTWARE_LETTERS = [
+  { fill: "transparent", stroke: "#D32F2F" },
+  { fill: "transparent", stroke: "#D32F2F" },
+  { fill: "transparent", stroke: "#D32F2F" },
+  { fill: "transparent", stroke: "#D32F2F" },
+  { fill: "transparent", stroke: "#D32F2F" },
+  { fill: "transparent", stroke: "#D32F2F" },
+  { fill: "transparent", stroke: "#D32F2F" },
+  { fill: "transparent", stroke: "#D32F2F" },
+];
+
+function SoftwareWord({ word }: { word: string }) {
+  return (
+    <span
+      className={`${styles.accentWord} ${styles.softwareWord}`}
+      aria-label={word}
+    >
+      {word.split("").map((char, index) => (
+        <span
+          key={`${word}-${index}`}
+          className={styles.softwareLetter}
+          aria-hidden="true"
+          style={
+            {
+              "--fill": SOFTWARE_LETTERS[index].fill,
+              "--stroke": SOFTWARE_LETTERS[index].stroke,
+            } as React.CSSProperties
+          }
+        >
+          {char}
+        </span>
+      ))}
+    </span>
+  );
+}
+
 export default function Hero() {
   return (
     <section className={styles.hero}>
@@ -13,11 +49,9 @@ export default function Hero() {
             </span>
             <h1 className={styles.headline}>
               <span className={styles.headlineLine}>We Build</span>
-              <span className={`${styles.accentWord} ${styles.softwareWord} ${styles.strokeWord}`}>
-                SOFTWARE
-              </span>
+              <SoftwareWord word="SOFTWARE" />
               <span className={styles.headlineLine}>That Enables Digital</span>
-              <span className={`${styles.accentWord} ${styles.strokeWord}`}>
+              <span className={`${styles.accentWord} ${styles.successWord}`}>
                 SUCCESS
               </span>
             </h1>

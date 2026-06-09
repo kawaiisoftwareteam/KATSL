@@ -1,6 +1,6 @@
 .hero {
-  padding-top: 96px;
-  padding-bottom: 40px;
+  padding-top: 112px;
+  padding-bottom: 96px;
   display: flex;
   align-items: center;
   position: relative;
@@ -17,7 +17,7 @@
 }
 
 .card {
-  padding: 0.5rem 0;
+  padding: 0.75rem 0 2rem;
   display: grid;
   grid-template-columns: 0.9fr 1.35fr;
   gap: 2rem 2.5rem;
@@ -58,13 +58,13 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0;
+  gap: 0.65rem;
   margin-bottom: 1rem;
 }
 
 .headlineLine {
   display: block;
-  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-size: clamp(2.35rem, 4.8vw, 3.85rem);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.03em;
@@ -73,27 +73,43 @@
 
 .accentWord {
   display: block;
-  font-size: 56px;
+  font-size: 64px;
   font-weight: 800;
-  line-height: 1.05;
+  line-height: 1.1;
   letter-spacing: 0.04em;
-  margin: 0.05rem 0;
+}
+
+.softwareWord,
+.successWord {
+  font-size: clamp(88px, 12vw, 112px);
+  letter-spacing: 0.05em;
+  line-height: 1.05;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  max-width: 100%;
 }
 
 .softwareWord {
-  font-size: clamp(76px, 10vw, 92px);
-  letter-spacing: 0.05em;
-  margin: 0.1rem 0 0.15rem;
+  font-family: var(--font-software);
+  font-size: clamp(76px, 9.5vw, 112px);
+  font-weight: 400;
+  letter-spacing: 0.035em;
 }
 
-.strokeWord {
-  color: transparent;
-  -webkit-text-stroke: 2px var(--color-brand);
+.successWord {
+  font-family: var(--font-success);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--color-brand);
+}
+
+.softwareLetter {
+  display: inline-block;
+  flex-shrink: 0;
+  color: var(--fill);
+  -webkit-text-stroke: 3px var(--stroke);
   paint-order: stroke fill;
-}
-
-.softwareWord.strokeWord {
-  -webkit-text-stroke-width: 2.5px;
 }
 
 .description {
@@ -171,11 +187,16 @@
 /* Media Queries */
 @media (max-width: 1100px) {
   .accentWord {
-    font-size: 48px;
+    font-size: 56px;
   }
 
   .softwareWord {
-    font-size: clamp(64px, 9vw, 76px);
+    font-size: clamp(64px, 8.5vw, 92px);
+    letter-spacing: 0.02em;
+  }
+
+  .successWord {
+    font-size: clamp(76px, 10.5vw, 92px);
   }
 
   .card {
@@ -213,21 +234,30 @@
 
 @media (max-width: 600px) {
   .hero {
-    padding-top: 92px;
-    padding-bottom: 32px;
+    padding-top: 100px;
+    padding-bottom: 64px;
+  }
+
+  .headline {
+    gap: 0.5rem;
   }
 
   .headlineLine {
-    font-size: 1.85rem;
+    font-size: 2.1rem;
   }
 
   .accentWord {
-    font-size: 38px;
+    font-size: 44px;
     letter-spacing: 0.02em;
   }
 
   .softwareWord {
-    font-size: clamp(52px, 14vw, 64px);
+    font-size: clamp(48px, 11vw, 64px);
+    letter-spacing: 0.01em;
+  }
+
+  .successWord {
+    font-size: clamp(60px, 16vw, 76px);
   }
 
   .card {

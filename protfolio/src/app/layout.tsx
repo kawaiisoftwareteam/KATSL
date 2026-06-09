@@ -1,6 +1,28 @@
 import type { Metadata } from "next";
+import { Alfa_Slab_One, Black_Ops_One, Montserrat } from "next/font/google";
 import ScrollRevealInitializer from "./components/ScrollRevealInitializer";
 import "./globals.css";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-montserrat",
+  display: "swap",
+});
+
+const blackOpsOne = Black_Ops_One({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-black-ops-one",
+  display: "swap",
+});
+
+const alfaSlabOne = Alfa_Slab_One({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-alfa-slab-one",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Kawaii Advance Technology & Solution Limited | Enterprise Software & Digital Products",
@@ -20,8 +42,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className={`${montserrat.variable} ${blackOpsOne.variable} ${alfaSlabOne.variable}`}>
+      <body className={montserrat.className}>
         <ScrollRevealInitializer />
         {children}
       </body>

@@ -1,0 +1,252 @@
+.hero {
+  padding-top: 96px;
+  padding-bottom: 40px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: #f5f5f5;
+  overflow: hidden;
+}
+
+
+
+.cardContainer {
+  z-index: 2;
+  position: relative;
+  width: 100%;
+}
+
+.card {
+  padding: 0.5rem 0;
+  display: grid;
+  grid-template-columns: 0.9fr 1.35fr;
+  gap: 2rem 2.5rem;
+  align-items: center;
+  position: relative;
+}
+
+/* Subtle light red glow overlay */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle at 80% 20%, rgba(211, 47, 47, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
+}
+
+.subheadline {
+  font-family: var(--font-headings);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-brand);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+}
+
+.headline {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  margin-bottom: 1rem;
+}
+
+.headlineLine {
+  display: block;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--color-black);
+}
+
+.accentWord {
+  display: block;
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  margin: 0.05rem 0;
+}
+
+.softwareWord {
+  font-size: clamp(76px, 10vw, 92px);
+  letter-spacing: 0.05em;
+  margin: 0.1rem 0 0.15rem;
+}
+
+.strokeWord {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--color-brand);
+  paint-order: stroke fill;
+}
+
+.softwareWord.strokeWord {
+  -webkit-text-stroke-width: 2.5px;
+}
+
+.description {
+  font-size: 1.05rem;
+  color: var(--color-text-secondary);
+  max-width: 480px;
+  margin-bottom: 1.5rem;
+  line-height: 1.55;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.primaryBtn {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 1px solid var(--color-black);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.primaryBtn:hover {
+  background-color: var(--color-brand);
+  border-color: var(--color-brand);
+}
+
+.secondaryBtn {
+  background-color: transparent;
+  color: var(--color-black);
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 2px solid var(--color-black);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.secondaryBtn:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  width: 100%;
+  min-height: 0;
+}
+
+.videoWrapper {
+  width: 100%;
+  position: relative;
+  background: transparent;
+}
+
+.heroVideo {
+  width: 100%;
+  height: auto;
+  display: block;
+  min-height: 380px;
+  max-height: 720px;
+  object-fit: contain;
+}
+
+/* Media Queries */
+@media (max-width: 1100px) {
+  .accentWord {
+    font-size: 48px;
+  }
+
+  .softwareWord {
+    font-size: clamp(64px, 9vw, 76px);
+  }
+
+  .card {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .card {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 2rem 0;
+  }
+
+  .content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .headline {
+    align-items: center;
+  }
+
+  .actions {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .heroVideo {
+    min-height: 300px;
+    max-height: 520px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding-top: 92px;
+    padding-bottom: 32px;
+  }
+
+  .headlineLine {
+    font-size: 1.85rem;
+  }
+
+  .accentWord {
+    font-size: 38px;
+    letter-spacing: 0.02em;
+  }
+
+  .softwareWord {
+    font-size: clamp(52px, 14vw, 64px);
+  }
+
+  .card {
+    padding: 1.5rem 0;
+  }
+
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .heroVideo {
+    min-height: 260px;
+    max-height: 420px;
+  }
+}

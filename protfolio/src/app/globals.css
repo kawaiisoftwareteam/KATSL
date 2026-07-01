@@ -11,6 +11,7 @@
 
   --font-headings: var(--font-montserrat), "Montserrat", sans-serif;
   --font-body: var(--font-montserrat), "Montserrat", sans-serif;
+  --font-hero-headline: "Mozilla Headline Variable", "Mozilla Headline", sans-serif;
   --font-software: var(--font-black-ops-one), "Black Ops One", sans-serif;
   --font-success: var(--font-alfa-slab-one), "Alfa Slab One", serif;
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Alfa_Slab_One, Black_Ops_One, Montserrat } from "next/font/google";
 import ScrollRevealInitializer from "./components/ScrollRevealInitializer";
+import "@fontsource-variable/mozilla-headline/wght.css";
 import "./globals.css";
 
 const montserrat = Montserrat({

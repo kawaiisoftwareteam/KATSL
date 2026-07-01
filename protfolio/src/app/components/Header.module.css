@@ -37,6 +37,12 @@
   gap: 0.25rem;
 }
 
+.logoImage {
+  object-fit: contain;
+  height: 55px;
+  width: auto;
+}
+
 .logoRed {
   color: var(--color-brand);
 }
@@ -99,20 +105,38 @@
 
 .menuBtn {
   display: none;
-  background: none;
-  border: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 0;
   z-index: 1001;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.menuBtn:hover {
+  border-color: #c81e32;
+  box-shadow: 0 4px 20px rgba(200, 30, 50, 0.15);
 }
 
 .burgerLine {
   display: block;
-  width: 24px;
-  height: 2px;
-  margin: 5px 0;
-  background-color: var(--color-black);
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  width: 22px;
+  height: 2.5px;
+  margin: 3px 0;
+  background-color: #111111;
+  border-radius: 999px;
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.menuBtnActive .burgerLine {
+  background-color: #c81e32;
 }
 
 /* Mobile styles */
@@ -185,27 +209,36 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .navContainer {
     grid-template-columns: 1fr auto;
+    height: 72px;
+    gap: 1rem;
   }
 
-  .navList {
+  .navContainer > nav,
+  .navContainer > .ctaBtn {
     display: none;
   }
 
-  .ctaBtn {
-    display: none;
+  .logo {
+    grid-column: 1;
+    grid-row: 1;
   }
 
   .menuBtn {
-    display: block;
+    display: flex;
+    grid-column: 2;
+    grid-row: 1;
     justify-self: end;
   }
 
-  /* When menu is active, animate burger to an X */
+  .logoImage {
+    height: 44px;
+  }
+
   .menuBtnActive .burgerLine:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+    transform: translateY(8px) rotate(45deg);
   }
 
   .menuBtnActive .burgerLine:nth-child(2) {
@@ -213,6 +246,21 @@
   }
 
   .menuBtnActive .burgerLine:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .navContainer {
+    height: 68px;
+  }
+
+  .menuBtn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .burgerLine {
+    width: 20px;
   }
 }

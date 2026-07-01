@@ -21,7 +21,7 @@ export default function Header() {
               alt="Kawaii Advance Logo"
               width={200}
               height={55}
-              style={{ objectFit: "contain", height: "55px", width: "auto" }}
+              className={styles.logoImage}
               priority
             />
           </Link>
@@ -66,9 +66,12 @@ export default function Header() {
           </Link>
 
           <button
+            type="button"
             className={`${styles.menuBtn} ${isMenuOpen ? styles.menuBtnActive : ""}`}
             onClick={toggleMenu}
-            aria-label="Toggle Menu"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-nav"
           >
             <span className={styles.burgerLine}></span>
             <span className={styles.burgerLine}></span>
@@ -84,7 +87,10 @@ export default function Header() {
       ></div>
 
       {/* Mobile navigation drawer */}
-      <div className={`${styles.mobileDrawer} ${isMenuOpen ? styles.mobileDrawerActive : ""}`}>
+      <div
+        id="mobile-nav"
+        className={`${styles.mobileDrawer} ${isMenuOpen ? styles.mobileDrawerActive : ""}`}
+      >
         <ul className={styles.mobileNavList}>
           <li>
             <Link href="/about" className={styles.mobileNavLink} onClick={closeMenu}>

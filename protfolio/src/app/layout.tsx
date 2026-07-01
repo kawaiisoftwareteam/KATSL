@@ -43,8 +43,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${montserrat.variable} ${blackOpsOne.variable} ${alfaSlabOne.variable}`}>
-      <body className={montserrat.className}>
+    <html
+      lang="en"
+      className={`${montserrat.variable} ${blackOpsOne.variable} ${alfaSlabOne.variable}`}
+      suppressHydrationWarning
+    >
+      <body className={montserrat.className} suppressHydrationWarning>
         <ScrollRevealInitializer />
         {children}
       </body>

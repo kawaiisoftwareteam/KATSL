@@ -178,6 +178,9 @@ export default function Hero() {
           <clipPath id="heroCurveClip" clipPathUnits="objectBoundingBox">
             <path d="M0,0 H1 V0.76 C1,0.9 0.9,1 0.74,1 H0 Z" />
           </clipPath>
+          <clipPath id="heroCurveClipMobile" clipPathUnits="objectBoundingBox">
+            <path d="M0,0 H1 V0.88 C1,0.96 0.94,1 0.82,1 H0 Z" />
+          </clipPath>
         </defs>
       </svg>
 
@@ -210,17 +213,17 @@ export default function Hero() {
 
             <div className={styles.mediaOverlay} aria-hidden="true" />
           </div>
-        </div>
 
-        <div className={`container ${styles.heroContent}`}>
-          <h1 className={styles.headline}>
-            <span className={`${styles.headlineLine} ${styles.solidWord}`}>with</span>
-            <span className={`${styles.headlineLine} ${styles.outlineWord}`}>You,</span>
-            <span className={`${styles.headlineLine} ${styles.solidWord}`}>we build</span>
-          </h1>
-          <p className={styles.tagline}>
-            Building digital products that drive growth — together.
-          </p>
+          <div className={styles.heroContent}>
+            <h1 className={styles.headline}>
+              <span className={`${styles.headlineLine} ${styles.solidWord}`}>with</span>
+              <span className={`${styles.headlineLine} ${styles.outlineWord}`}>You,</span>
+              <span className={`${styles.headlineLine} ${styles.solidWord}`}>we build</span>
+            </h1>
+            <p className={styles.tagline}>
+              Building digital products that drive growth — together.
+            </p>
+          </div>
         </div>
       </div>
 

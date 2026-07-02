@@ -235,6 +235,7 @@
 
   .logoImage {
     height: 44px;
+    width: auto;
   }
 
   .menuBtnActive .burgerLine:nth-child(1) {

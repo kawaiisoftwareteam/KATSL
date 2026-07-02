@@ -23,6 +23,25 @@
   pointer-events: none;
 }
 
+/* Giant scrolling watermark behind the section */
+.watermark {
+  position: absolute;
+  top: clamp(1rem, 4vh, 3rem);
+  left: 0;
+  z-index: 0;
+  font-family: var(--font-hero-headline);
+  font-size: clamp(6rem, 18vw, 16rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(17, 17, 17, 0.06);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
 .aboutGrid {
   position: relative;
   z-index: 2;
@@ -46,7 +65,7 @@
   flex-shrink: 0;
   width: clamp(6px, 0.55vw, 8px);
   margin-right: clamp(1.25rem, 2.5vw, 2rem);
-  background: #c81e32;
+  background: linear-gradient(180deg, #c81e32 0%, #8f1524 100%);
   border-radius: 999px;
   transform-origin: top center;
 }
@@ -85,7 +104,36 @@
   color: #111111;
   margin-bottom: 1.35rem;
   overflow-wrap: break-word;
-  hyphens: auto;
+}
+
+/* Lines produced by SplitText — masked by the parent for the reveal */
+.titleLine {
+  will-change: transform;
+}
+
+/* Highlighted word with an animated underline sweep */
+.highlight {
+  position: relative;
+  color: #c81e32;
+  white-space: nowrap;
+}
+
+.highlight::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.04em;
+  height: 0.12em;
+  background: linear-gradient(90deg, #c81e32, rgba(200, 30, 50, 0.35));
+  border-radius: 999px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1) 0.9s;
+}
+
+.isRevealed .highlight::after {
+  transform: scaleX(1);
 }
 
 .introText {
@@ -101,21 +149,50 @@
   display: flex;
   flex-direction: column;
   gap: 0;
-  border-top: 1px solid #ececea;
 }
 
 .pillar {
+  position: relative;
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto 1fr auto;
   gap: 1.25rem;
   align-items: start;
-  padding: 1.35rem 0;
-  border-bottom: 1px solid #ececea;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 1.35rem 1rem 1.35rem 0.75rem;
+  cursor: default;
+  transition:
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Animated divider under each pillar (revealed by GSAP, thickened on hover) */
+.pillarLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: #ececea;
+  pointer-events: none;
+}
+
+.pillarLine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #c81e32;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pillar:hover .pillarLine::after {
+  transform: scaleX(1);
 }
 
 .pillar:hover {
-  transform: translateX(6px);
+  transform: translateX(8px);
+  background: linear-gradient(90deg, rgba(200, 30, 50, 0.04), transparent 70%);
 }
 
 .pillarIndex {
@@ -126,6 +203,11 @@
   color: #c81e32;
   padding-top: 0.2rem;
   flex-shrink: 0;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pillar:hover .pillarIndex {
+  transform: scale(1.25);
 }
 
 .pillarBody {
@@ -138,6 +220,11 @@
   color: #111111;
   margin-bottom: 0.35rem;
   overflow-wrap: break-word;
+  transition: color 0.35s ease;
+}
+
+.pillar:hover .pillarTitle {
+  color: #c81e32;
 }
 
 .pillarDescription {
@@ -145,6 +232,22 @@
   line-height: 1.65;
   color: #71717a;
   overflow-wrap: break-word;
+}
+
+.pillarArrow {
+  align-self: center;
+  font-size: 1.15rem;
+  color: #c81e32;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition:
+    opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pillar:hover .pillarArrow {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .mediaColumn {
@@ -158,23 +261,46 @@
   position: relative;
 }
 
-.curveAccent {
+/* Rotating circular "who we are" badge over the image corner */
+.spinBadge {
   position: absolute;
-  top: -18%;
-  right: -12%;
-  width: clamp(180px, 28vw, 320px);
-  height: clamp(180px, 28vw, 320px);
-  border: 1px solid rgba(200, 30, 50, 0.14);
-  border-radius: 50%;
+  top: clamp(-2.25rem, -3vw, -1.5rem);
+  right: clamp(-1.5rem, -2vw, -0.75rem);
+  z-index: 4;
+  width: clamp(96px, 11vw, 136px);
+  height: clamp(96px, 11vw, 136px);
+  display: grid;
+  place-items: center;
   pointer-events: none;
-  z-index: 0;
+  filter: drop-shadow(0 12px 28px rgba(17, 17, 17, 0.14));
 }
 
-.curveAccent::after {
-  content: "";
+.spinRing {
   position: absolute;
-  inset: 18%;
-  border: 1px dashed rgba(200, 30, 50, 0.22);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+
+.spinText {
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  fill: #111111;
+}
+
+.spinCenter {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 38%;
+  height: 38%;
+  background: #c81e32;
+  color: #ffffff;
+  font-size: 1rem;
   border-radius: 50%;
 }
 
@@ -188,6 +314,31 @@
   box-shadow:
     0 32px 80px rgba(17, 17, 17, 0.12),
     0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+}
+
+.mediaInner {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+/* Reveal curtains wiped away by GSAP */
+.curtain,
+.curtainRed {
+  position: absolute;
+  inset: -1px;
+  transform-origin: right center;
+  pointer-events: none;
+}
+
+.curtain {
+  background: #111111;
+  z-index: 2;
+}
+
+.curtainRed {
+  background: #c81e32;
+  z-index: 3;
 }
 
 .mediaImage {
@@ -228,6 +379,7 @@
   line-height: 1;
   letter-spacing: -0.03em;
   color: #111111;
+  font-variant-numeric: tabular-nums;
 }
 
 .badgeLabel {
@@ -261,11 +413,11 @@
     bottom: 1.25rem;
   }
 
-  .curveAccent {
-    top: -8%;
-    right: -4%;
-    width: clamp(140px, 24vw, 220px);
-    height: clamp(140px, 24vw, 220px);
+  .spinBadge {
+    top: -1.25rem;
+    right: 0.5rem;
+    width: clamp(84px, 14vw, 110px);
+    height: clamp(84px, 14vw, 110px);
   }
 }
 
@@ -276,6 +428,11 @@
 
   .topCurve {
     height: clamp(2rem, 5vw, 3rem);
+  }
+
+  .watermark {
+    font-size: clamp(4.5rem, 22vw, 7rem);
+    top: 0.75rem;
   }
 
   .contentColumn {
@@ -303,12 +460,17 @@
   }
 
   .pillar {
-    padding: 1rem 0;
+    padding: 1rem 0.5rem 1rem 0.25rem;
     gap: 0.75rem;
   }
 
   .pillar:hover {
     transform: none;
+    background: none;
+  }
+
+  .pillarArrow {
+    display: none;
   }
 
   .mediaFrame {
@@ -326,7 +488,7 @@
     max-width: 100%;
   }
 
-  .curveAccent {
+  .spinBadge {
     display: none;
   }
 
@@ -410,7 +572,16 @@
     transform: none !important;
   }
 
-  .curveAccent {
-    transform: none !important;
+  .curtain,
+  .curtainRed {
+    display: none;
+  }
+
+  .highlight::after {
+    transition: none;
+  }
+
+  .spinRing {
+    animation: none !important;
   }
 }

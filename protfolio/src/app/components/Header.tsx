@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { LOGO_SOURCE, optimizedBlur, optimizedSrc } from "@/lib/site-images";
 import styles from "./Header.module.css";
 
 export default function Header() {
@@ -17,12 +18,14 @@ export default function Header() {
         <div className={`container ${styles.navContainer}`}>
           <Link href="/" className={styles.logo} onClick={closeMenu}>
             <Image
-              src="/KATSL_Logo.3692a9b70d427f6902c5.png"
+              src={optimizedSrc(LOGO_SOURCE)}
               alt="Kawaii Advance Logo"
               width={200}
               height={55}
               className={styles.logoImage}
               priority
+              placeholder="blur"
+              blurDataURL={optimizedBlur(LOGO_SOURCE)}
             />
           </Link>
 

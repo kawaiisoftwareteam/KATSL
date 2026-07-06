@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import { optimizedBlur, optimizedSrc } from "@/lib/site-images";
 import styles from "./project-detail.module.css";
 
 interface ProjectFeature {
@@ -228,11 +229,13 @@ export default async function ProjectDetailPage({ params }: PageProps) {
               <div>
                 <div className={styles.imageWrapper}>
                   <Image
-                    src={project.image}
+                    src={optimizedSrc(project.image)}
                     alt={project.title}
                     width={800}
                     height={450}
                     priority
+                    placeholder="blur"
+                    blurDataURL={optimizedBlur(project.image)}
                     className={styles.image}
                   />
                 </div>

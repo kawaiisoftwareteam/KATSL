@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
+import { ABOUT_IMAGE_SOURCE, optimizedBlur, optimizedSrc } from "@/lib/site-images";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
@@ -280,9 +281,12 @@ export default function About() {
               <div className={styles.mediaClip}>
                 <div className={styles.mediaInner}>
                   <Image
-                    src="/html-css-collage-concept-with-person.jpg"
+                    src={optimizedSrc(ABOUT_IMAGE_SOURCE)}
                     alt="Developer reviewing code with a global digital network overlay"
                     fill
+                    loading="lazy"
+                    placeholder="blur"
+                    blurDataURL={optimizedBlur(ABOUT_IMAGE_SOURCE)}
                     sizes="(max-width: 900px) 100vw, 50vw"
                     className={styles.mediaImage}
                   />

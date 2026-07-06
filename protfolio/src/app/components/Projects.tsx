@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { optimizedBlur, optimizedSrc } from "@/lib/site-images";
 import styles from "./Projects.module.css";
 
 export default function Projects() {
@@ -45,10 +46,13 @@ export default function Projects() {
             <div key={index} className={styles.card}>
               <div className={styles.imageWrapper}>
                 <Image
-                  src={project.image}
+                  src={optimizedSrc(project.image)}
                   alt={project.title}
                   width={400}
                   height={300}
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL={optimizedBlur(project.image)}
                   className={styles.image}
                 />
               </div>

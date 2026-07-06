@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Alfa_Slab_One, Black_Ops_One, Montserrat } from "next/font/google";
 import ScrollRevealInitializer from "./components/ScrollRevealInitializer";
+import { HERO_IMAGES, LOGO_SOURCE, optimizedSrc } from "@/lib/site-images";
 import "@fontsource-variable/mozilla-headline/wght.css";
 import "./globals.css";
 
@@ -48,6 +49,20 @@ export default function RootLayout({
       className={`${montserrat.variable} ${blackOpsOne.variable} ${alfaSlabOne.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href={optimizedSrc(HERO_IMAGES[0].source)}
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href={optimizedSrc(LOGO_SOURCE)}
+          fetchPriority="high"
+        />
+      </head>
       <body className={montserrat.className} suppressHydrationWarning>
         <ScrollRevealInitializer />
         {children}

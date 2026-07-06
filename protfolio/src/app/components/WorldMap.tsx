@@ -429,7 +429,7 @@ export default function WorldMap({ onHoverPin, hoveredPin }: WorldMapProps) {
             fill="url(#ocean-grad)"
           />
           <image
-            href="/map_bg_landscape.png"
+            href="/optimized/map_bg_landscape.webp"
             x="30.767"
             y="241.591"
             width="784.077"

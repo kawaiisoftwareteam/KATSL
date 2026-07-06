@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { LOGO_SOURCE, optimizedBlur, optimizedSrc } from "@/lib/site-images";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -12,10 +13,13 @@ export default function Footer() {
           <div>
             <span className={styles.logo}>
               <Image
-                src="/KATSL_Logo.3692a9b70d427f6902c5.png"
+                src={optimizedSrc(LOGO_SOURCE)}
                 alt="Kawaii Advance Logo"
                 width={200}
                 height={55}
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL={optimizedBlur(LOGO_SOURCE)}
                 style={{ objectFit: "contain", height: "55px", width: "auto" }}
               />
             </span>

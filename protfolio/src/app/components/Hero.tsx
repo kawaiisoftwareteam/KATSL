@@ -3,26 +3,8 @@
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
+import { HERO_IMAGES, optimizedBlur, optimizedSrc } from "@/lib/site-images";
 import styles from "./Hero.module.css";
-
-const HERO_IMAGES = [
-  {
-    src: "/colleagues-discussing-work-project.jpg",
-    alt: "Colleagues discussing a work project together",
-  },
-  {
-    src: "/programmer-night.jpg",
-    alt: "Programmer working at a dual-monitor setup at night",
-  },
-  {
-    src: "/three-dark-skinned-guy-chatting-laptop-sitting-sideways-desk-studio-black-background.jpg",
-    alt: "Team collaborating around a laptop in a studio",
-  },
-  {
-    src: "/top-view-plan-written-black-notepad-lupa-keyboard-light-bulb-pen-black-table.jpg",
-    alt: "Planning workspace with notepad, keyboard, and light bulb",
-  },
-] as const;
 
 const SLIDE_INTERVAL = 5.5;
 const SLIDE_DURATION = 1.4;
@@ -171,6 +153,13 @@ export default function Hero() {
     };
   }, []);
 
+  useEffect(() => {
+    HERO_IMAGES.slice(1).forEach((image) => {
+      const img = new window.Image();
+      img.src = optimizedSrc(image.source);
+    });
+  }, []);
+
   return (
     <section ref={heroRef} className={styles.hero} aria-label="Hero">
       <svg className={styles.clipSvg} aria-hidden="true">
@@ -192,7 +181,7 @@ export default function Hero() {
             <div className={styles.slides}>
               {HERO_IMAGES.map((image, index) => (
                 <div
-                  key={image.src}
+                  key={image.source}
                   ref={(el) => {
                     slideRefs.current[index] = el;
                   }}
@@ -200,10 +189,13 @@ export default function Hero() {
                   aria-hidden={index !== 0}
                 >
                   <Image
-                    src={image.src}
+                    src={optimizedSrc(image.source)}
                     alt={image.alt}
                     fill
                     priority={index === 0}
+                    loading="eager"
+                    placeholder="blur"
+                    blurDataURL={optimizedBlur(image.source)}
                     sizes="(max-width: 900px) 100vw, 85vw"
                     className={styles.slideImage}
                   />

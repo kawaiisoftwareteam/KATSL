@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { optimizedBlur, optimizedSrc } from "@/lib/site-images";
 import styles from "./Team.module.css";
 
 export default function Team() {
@@ -58,13 +59,15 @@ export default function Team() {
             <div key={index} className={styles.card}>
               <div className={styles.imageWrapper}>
                 <Image
-                  src={member.image}
+                  src={optimizedSrc(member.image)}
                   alt={member.name}
                   fill
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL={optimizedBlur(member.image)}
                   sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 25vw"
                   className={styles.memberImage}
                   style={{ objectFit: "cover" }}
-                  priority={index < 2} // priority load first couple of images
                 />
               </div>
 

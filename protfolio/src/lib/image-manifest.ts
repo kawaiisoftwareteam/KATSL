@@ -50,7 +50,7 @@ export const imageManifest: Record<string, OptimizedImage> = {
   "/programmer-night.jpg": {
     "source": "/programmer-night.jpg",
     "src": "/optimized/programmer-night.webp",
-    "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAAAQAgCdASoQAAsABUB8JYgCdH8AD45c9CgAAP10CxW2md4W3pIZLVdoRe0OJO0QMLdQbCnDDjH9+NklOxB0kOVnOE8uQHQmAAA="
+    "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAQAgCdASoQAAsABUB8JYgCdH8AD45c9CgAAP10CxW2md4W3pIZLVdoRe0OJO0QMLdQbCnDDjH9+NklOxB0kOVnOE8uQHaQdAAAAA=="
   },
   "/project_ai.png": {
     "source": "/project_ai.png",

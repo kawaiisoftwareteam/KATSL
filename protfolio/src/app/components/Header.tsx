@@ -3,14 +3,24 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { LOGO_SOURCE, optimizedBlur, optimizedSrc } from "@/lib/site-images";
 import styles from "./Header.module.css";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
+  const handleLetsTalkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // If we are already on the contact page, force the scroll to the section.
+    if (pathname === "/contact") {
+      e.preventDefault();
+      const el = document.getElementById("contact");
+      el?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <>
@@ -64,7 +74,7 @@ export default function Header() {
             </ul>
           </nav>
 
-          <Link href="/contact" className={styles.ctaBtn}>
+          <Link href="/contact#contact" className={styles.ctaBtn} onClick={handleLetsTalkClick}>
             Let's Talk
           </Link>
 
@@ -126,7 +136,15 @@ export default function Header() {
             </Link>
           </li>
         </ul>
-        <Link href="/contact" className={styles.ctaBtn} style={{ display: "block", textAlign: "center" }} onClick={closeMenu}>
+        <Link
+          href="/contact#contact"
+          className={styles.ctaBtn}
+          style={{ display: "block", textAlign: "center" }}
+          onClick={(e) => {
+            handleLetsTalkClick(e);
+            closeMenu();
+          }}
+        >
           Let's Talk
         </Link>
       </div>

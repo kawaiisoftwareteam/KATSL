@@ -58,6 +58,32 @@
   color: var(--color-brand);
 }
 
+.contactItems {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  transition: color var(--transition-fast);
+}
+
+.contactItem svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--color-brand);
+}
+
+a.contactItem:hover {
+  color: var(--color-brand);
+}
+
 .bottomBar {
   display: flex;
   justify-content: space-between;

@@ -2,6 +2,8 @@
   padding: 120px 0;
   background-color: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
+  /* Prevent the fixed header from covering the section when using anchor scroll. */
+  scroll-margin-top: 100px;
 }
 
 .grid {

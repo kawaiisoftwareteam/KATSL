@@ -10,6 +10,7 @@ export default function Contact() {
     message: "",
   });
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -19,12 +20,27 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("submitting");
+    setErrorMessage("");
 
-    // Simulate submission API call
-    setTimeout(() => {
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to send your message.");
+      }
+
       setStatus("success");
       setFormData({ name: "", email: "", message: "" });
-    }, 1500);
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage(error instanceof Error ? error.message : "Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -112,6 +128,12 @@ export default function Contact() {
                     </svg>
                   )}
                 </button>
+
+                {status === "error" && errorMessage ? (
+                  <p className={styles.errorMsg} role="alert">
+                    {errorMessage}
+                  </p>
+                ) : null}
               </form>
             )}
           </div>

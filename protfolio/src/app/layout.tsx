@@ -26,10 +26,15 @@ const alfaSlabOne = Alfa_Slab_One({
   display: "swap",
 });
 
+const favIconUrl = optimizedSrc(LOGO_SOURCE);
+
 export const metadata: Metadata = {
   title: "Kawaii Advance Technology & Solution Limited | Enterprise Software & Digital Products",
   description: "Kawaii Advance Technology & Solution Limited builds scalable web applications, mobile products, cloud architectures, and custom AI integrations for global enterprises.",
   keywords: "Kawaii Advance Technology, KATSL, software engineering, enterprise software, app development, cloud infrastructure, AI solutions, web applications",
+  icons: {
+    icon: "/favicon.ico",
+  },
   openGraph: {
     title: "Kawaii Advance Technology & Solution Limited",
     description: "Building scalable digital products that drive growth. Enterprise-level custom software development.",

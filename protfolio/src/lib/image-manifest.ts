@@ -7,6 +7,11 @@ export type OptimizedImage = {
 };
 
 export const imageManifest: Record<string, OptimizedImage> = {
+  "/Dewan Samir.jpeg": {
+    "source": "/Dewan Samir.jpeg",
+    "src": "/optimized/Dewan Samir.webp",
+    "blurDataURL": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADQAQCdASoNABAABUB8JQBOgB9x7iLCAAD+669aXKmyC4LpvlrLe7aTSTlbZSZyeCUSoDV5e6hgH/Tdm86oSDCgfeduLrnv+hST6wc7To9coMWUgCAAAA=="
+  },
   "/KATSL_Logo.3692a9b70d427f6902c5.png": {
     "source": "/KATSL_Logo.3692a9b70d427f6902c5.png",
     "src": "/optimized/KATSL_Logo.3692a9b70d427f6902c5.webp",

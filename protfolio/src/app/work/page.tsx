@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 export const metadata: Metadata = {
   title: "Selected Work - Case Studies | Kawaii Advance Technology & Solution Limited",
   description: "A curated showcase of scalable software platforms engineered for global reach and enterprise performance by KATSL.",
+  alternates: { canonical: "/work" },
 };
 
 export default function WorkPage() {

@@ -153,6 +153,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${project.title} - Case Study | Kawaii Advance Technology & Solution Limited`,
     description: project.overview,
+    alternates: { canonical: `/projects/${slug}` },
   };
 }
 

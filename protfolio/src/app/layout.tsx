@@ -31,6 +31,9 @@ export const metadata: Metadata = {
   title: "Kawaii Advanced Technology & Solution Ltd | KATSL | Enterprise Software Development",
   description: "Kawaii Advanced Technology & Solution Ltd (KATSL) is a Japan-Bangladesh joint venture specializing in custom software development, SaaS, ERP, mobile apps, AI/ML, and offshore team augmentation for global enterprises.",
   keywords: "Kawaii Advanced Technology & Solution Ltd, KATSL, Kawaii Advanced Technology, kawaii tech, software development Bangladesh, enterprise software, app development, cloud infrastructure, AI solutions, offshore development Japan Bangladesh",
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: [
       { url: "/favicon-48.png", type: "image/png", sizes: "48x48" },

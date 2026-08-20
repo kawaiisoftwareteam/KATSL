@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 export const metadata: Metadata = {
   title: "Our Team - Meet the Engineers & Designers | Kawaii Advance Technology & Solution Limited",
   description: "Meet the experts behind KATSL setting the technological direction and scaling custom AI models, cloud infrastructures, and digital designs.",
+  alternates: { canonical: "/team" },
 };
 
 export default function TeamPage() {

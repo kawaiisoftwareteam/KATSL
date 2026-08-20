@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 export const metadata: Metadata = {
   title: "Our Services - Custom Software Engineering | Kawaii Advance Technology & Solution Limited",
   description: "Explore enterprise software consulting, custom web application development, cross-platform mobile apps, cloud architectures, and AI integrations.",
+  alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {

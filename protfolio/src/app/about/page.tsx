@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 export const metadata: Metadata = {
   title: "Who We Are - About Us | Kawaii Advance Technology & Solution Limited",
   description: "Learn more about Kawaii Advance Technology & Solution Limited, our mission of innovation, quality standards, and digital product reliability.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {

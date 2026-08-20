@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./WhyChooseUs.module.css";
 
-export default function WhyChooseUs() {
+export default function WhyChooseUs({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
+  const Heading = headingLevel;
   const stats = [
     {
       number: "50+",
@@ -30,10 +31,10 @@ export default function WhyChooseUs() {
       <div className="container">
         <div className={styles.grid}>
           <div>
-            <h2 className={styles.title}>
+            <Heading className={styles.title}>
               Why <br />
               <span className={styles.titleRed}>Kawaii</span>
-            </h2>
+            </Heading>
             <p className={styles.description}>
               We combine robust engineering practices with modern aesthetics to deliver software that doesn't just work, but scales and empowers your enterprise.
             </p>

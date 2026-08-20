@@ -29,7 +29,8 @@ const PILLARS = [
   },
 ] as const;
 
-export default function About() {
+export default function About({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
+  const Heading = headingLevel;
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -232,10 +233,10 @@ export default function About() {
 
             <div className={styles.contentInner}>
               <span className={styles.eyebrow}>Who We Are</span>
-              <h2 id="about-title" className={styles.title}>
+              <Heading id="about-title" className={styles.title}>
                 Engineering <span className={styles.highlight}>excellence</span> for ambitious
                 brands
-              </h2>
+              </Heading>
               <p className={styles.introText}>
                 A technology company delivering scalable software solutions for modern
                 businesses. We bridge the gap between complex engineering challenges and

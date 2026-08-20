@@ -3,7 +3,8 @@
 import React, { useState } from "react";
 import styles from "./Contact.module.css";
 
-export default function Contact() {
+export default function Contact({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
+  const Heading = headingLevel;
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -48,10 +49,10 @@ export default function Contact() {
       <div className="container">
         <div className={styles.grid}>
           <div className={styles.titleSection}>
-            <h2 className={styles.title}>
+            <Heading className={styles.title}>
               Let's Build <br />
               Something Great
-            </h2>
+            </Heading>
             <span className={styles.titleLine}></span>
             <p className={styles.subtitle}>
               Ready to scale your next digital product? Contact us today to discuss your software engineering, cloud architecture, or custom AI needs.

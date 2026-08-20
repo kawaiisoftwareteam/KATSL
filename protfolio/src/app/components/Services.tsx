@@ -2,7 +2,8 @@ import React from "react";
 import Image from "next/image";
 import styles from "./Services.module.css";
 
-export default function Services() {
+export default function Services({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
+  const Heading = headingLevel;
   const servicesList = [
     {
       number: "01",
@@ -99,9 +100,9 @@ export default function Services() {
         <div className={styles.headerWrapper}>
           <div className={styles.titleSection}>
             <span className={styles.badge}>WHAT WE DO</span>
-            <h2 className={styles.title}>
+            <Heading className={styles.title}>
               Engineering Excellence <span className="text-brand">&amp;</span> Innovation
-            </h2>
+            </Heading>
             <span className={styles.titleLine}></span>
           </div>
           <p className={styles.subtitle}>

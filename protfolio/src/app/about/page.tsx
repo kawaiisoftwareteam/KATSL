@@ -14,7 +14,7 @@ export default function AboutPage() {
     <>
       <Header />
       <main style={{ paddingTop: "80px", minHeight: "calc(100vh - 80px)" }}>
-        <About />
+        <About headingLevel="h1" />
       </main>
       <Footer />
     </>

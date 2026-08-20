@@ -14,7 +14,7 @@ export default function TeamPage() {
     <>
       <Header />
       <main style={{ paddingTop: "80px", minHeight: "calc(100vh - 80px)" }}>
-        <Team />
+        <Team headingLevel="h1" />
       </main>
       <Footer />
     </>

@@ -14,7 +14,7 @@ export default function WorkPage() {
     <>
       <Header />
       <main style={{ paddingTop: "80px", minHeight: "calc(100vh - 80px)" }}>
-        <Projects />
+        <Projects headingLevel="h1" />
       </main>
       <Footer />
     </>

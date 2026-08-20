@@ -35,12 +35,12 @@ export const imageManifest: Record<string, OptimizedImage> = {
   "/favicon-48.png": {
     "source": "/favicon-48.png",
     "src": "/optimized/favicon-48.webp",
-    "blurDataURL": "data:image/webp;base64,UklGRugAAABXRUJQVlA4WAoAAAAQAAAADwAADwAAQUxQSI0AAAABcNva2ptcAwMgfbRsYJgh0+Y1PAAMgVzRsgAMkCoWQC6Ra6qcMziHESJCbds2jDWllzOIAYVNgIJPCePbabmMLCMBoFmfJJDd908aIJu5JzEWid5GQDdrrvKrpZAyddRvvfzJDd7jNFD/qtMJZcuy1kMf92m0oo2wlIwvBdnMgo26G4n8Q/Sfov8YAwAAVlA4IDQAAACwAQCdASoQABAABUB8JbACdDiAAcmAAP7pka9xba/GI1cn5pfdhSyN6LBCh7cDmPt9DhQA"
+    "blurDataURL": "data:image/webp;base64,UklGRuQAAABXRUJQVlA4WAoAAAAQAAAADwAADwAAQUxQSI0AAAABcNva2ptcAwMgfbRsYJgh0+Y1PAAMgVzRsgAMkCoWQC6Ra6qcMziHESJCbds2jDWllzOIAYVNgIJPCePbabmMLCMBoFmfJJDd908aIJu5JzEWid5GQDdrrvKrpZAyddRvvfzJDd7jNFD/qtMJZcuy1kMf92m0oo2wlIwvBdnMgo26G4n8Q/Sfov8YAwAAVlA4IDAAAABwAQCdASoQABAABUB8JbACdAF1AAD+6ZGhIWg+Jq+rNuK/vWcLz/eu5y+2Ei7HYAA="
   },
   "/favicon-96.png": {
     "source": "/favicon-96.png",
     "src": "/optimized/favicon-96.webp",
-    "blurDataURL": "data:image/webp;base64,UklGRv4AAABXRUJQVlA4WAoAAAAQAAAADwAADwAAQUxQSKIAAAABgFvbtqpq4eQaU4HTAIPMHZp4BdCFkzJILXcowEJpwCV09/9LiAi1bdsw0ZSe+AwA6Rd8Yp/OPpjaP0w+OMYCgUCwch/IAYTbTgnol4mNAGhnza0SdIO2PD7TQmLs3CpF5mFXh3KcwLD3OXa23LaoAvx7Q60qdtwu90kh/6Kwrf1tfzi+vYHE6FfJKAHaWeNzUOc96LcOyY3wt07/0JE/dQZWUDggNgAAALABAJ0BKhAAEAAFQHwlsAJ0OIABiAAA/uoOnyWjutVS5GGjX92FLI3xbCc79uBzH2/aE0AAAA=="
+    "blurDataURL": "data:image/webp;base64,UklGRv4AAABXRUJQVlA4WAoAAAAQAAAADwAADwAAQUxQSKIAAAABgFvbtqpq4eQaU4HTAIPMHZp4BdCFkzJILXcowEJpwCV09/9LiAi1bdsw0ZSe+AwA6Rd8Yp/OPpjaP0w+OMYCgUCwch/IAYTbTgnol4mNAGhnza0SdIO2PD7TQmLs3CpF5mFXh3KcwLD3OXa23LaoAvx7Q60qdtwu90kh/6Kwrf1tfzi+vYHE6FfJKAHaWeNzUOc96LcOyY3wt07/0JE/dQZWUDggNgAAALABAJ0BKhAAEAAFQHwlsAJ0OIABiAAA/umO4PGjutVS5GGjX92FLI3xbCc79uBzH51YuuAAAA=="
   },
   "/hero_illustration.png": {
     "source": "/hero_illustration.png",
@@ -55,7 +55,7 @@ export const imageManifest: Record<string, OptimizedImage> = {
   "/icon.png": {
     "source": "/icon.png",
     "src": "/optimized/icon.webp",
-    "blurDataURL": "data:image/webp;base64,UklGRhoBAABXRUJQVlA4WAoAAAAQAAAADwAADwAAQUxQSKkAAAABcFtr25q8SbC/x2omcOiTtHjFEBmALZyWkxapHQawkmQBHEp3i40QEWrbtmGiKT3xGQBgVgEl7HypYM4qzDq9ZFKpVLr5mloBQHgdCQDPJr8XALiW/QMB3NOBNbt0gcrJ0QOh/LORG0TOUd5Tkj9EKoeaHUDy5O20Gf55fy/F6g/x2Om09Mx7Sug4VE5SlozdIFKOgmvZUw4a/gfp6mBMJ3BqHTkAujoDAFZQOCBKAAAAMAIAnQEqEAAQAAVAfCWwAnQ4gAFKhtzYrAAA/svNJNvi6yjmJF5xr5GYSS3JVQiO2IPiavqzbdU7F60tqvjSfSgCArohbnE4AAA="
+    "blurDataURL": "data:image/webp;base64,UklGRhIBAABXRUJQVlA4WAoAAAAQAAAADwAADwAAQUxQSKkAAAABcFtr25q8SbC/x2omcOiTtHjFEBmALZyWkxapHQawkmQBHEp3i40QEWrbtmGiKT3xGQBgVgEl7HypYM4qzDq9ZFKpVLr5mloBQHgdCQDPJr8XALiW/QMB3NOBNbt0gcrJ0QOh/LORG0TOUd5Tkj9EKoeaHUDy5O20Gf55fy/F6g/x2Om09Mx7Sug4VE5SlozdIFKOgmvZUw4a/gfp6mBMJ3BqHTkAujoDAFZQOCBCAAAA0AEAnQEqEAAQAAVAfCWxUwEYGGAA5MAA/utSBelugdr9LsOSnlLpKCfEAiEjDIf5sjZjGvzTsAXeKiRrpNwqBogA"
   },
   "/japan_photo.png": {
     "source": "/japan_photo.png",

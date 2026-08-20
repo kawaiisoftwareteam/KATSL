@@ -3,7 +3,8 @@ import Image from "next/image";
 import { optimizedBlur, optimizedSrc } from "@/lib/site-images";
 import styles from "./Projects.module.css";
 
-export default function Projects() {
+export default function Projects({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
+  const Heading = headingLevel;
   const projectsList = [
     {
       title: "Aura SaaS Platform",
@@ -33,7 +34,7 @@ export default function Projects() {
       <div className="container">
         <div className={styles.titleSection}>
           <div>
-            <h2 className={styles.title}>Selected Work</h2>
+            <Heading className={styles.title}>Selected Work</Heading>
             <span className={styles.titleLine}></span>
           </div>
           <p className={styles.subtitle}>

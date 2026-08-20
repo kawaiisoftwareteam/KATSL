@@ -3,7 +3,8 @@ import Image from "next/image";
 import { optimizedBlur, optimizedSrc } from "@/lib/site-images";
 import styles from "./Team.module.css";
 
-export default function Team() {
+export default function Team({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
+  const Heading = headingLevel;
   const members = [
     {
       name: "Dewan Samir",
@@ -19,7 +20,7 @@ export default function Team() {
     <section id="team" className={`${styles.team} scroll-reveal`}>
       <div className="container">
         <div className={styles.titleSection}>
-          <h2 className={styles.title}>Our Team</h2>
+          <Heading className={styles.title}>Our Team</Heading>
           <span className={styles.titleLine}></span>
           <p className={styles.subtitle}>
             Meet the engineers, designers, and strategists behind Kawaii Advance Technology & Software Ltd. (KATSL). We are dedicated to building robust digital infrastructure.

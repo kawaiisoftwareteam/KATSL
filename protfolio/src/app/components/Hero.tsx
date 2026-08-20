@@ -4,12 +4,14 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { HERO_IMAGES, optimizedBlur, optimizedSrc } from "@/lib/site-images";
+import { useI18n } from "@/lib/i18n";
 import styles from "./Hero.module.css";
 
 const SLIDE_INTERVAL = 5.5;
 const SLIDE_DURATION = 1.4;
 
 export default function Hero() {
+  const { t, lang } = useI18n();
   const heroRef = useRef<HTMLElement>(null);
   const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
   const currentSlideRef = useRef(0);
@@ -208,22 +210,22 @@ export default function Hero() {
 
           <div className={styles.heroContent}>
             <p className={styles.brandName}>
-              Kawaii Advanced Technology &amp; Solution Ltd (KATSL)
+              {t("hero.brand")}
             </p>
-            <h1 className={styles.headline}>
-              <span className={`${styles.headlineLine} ${styles.solidWord}`}>with</span>
-              <span className={`${styles.headlineLine} ${styles.outlineWord}`}>You,</span>
-              <span className={`${styles.headlineLine} ${styles.solidWord}`}>we build</span>
+            <h1 className={`${styles.headline} ${lang === "ja" ? styles.headlineJa : ""}`}>
+              <span className={`${styles.headlineLine} ${styles.solidWord}`}>{t("hero.line1")}</span>
+              <span className={`${styles.headlineLine} ${styles.outlineWord}`}>{t("hero.line2")}</span>
+              <span className={`${styles.headlineLine} ${styles.solidWord}`}>{t("hero.line3")}</span>
             </h1>
             <p className={styles.tagline}>
-              Kawaii Advanced Technology — building digital products that drive growth, together.
+              {t("hero.tagline")}
             </p>
           </div>
         </div>
       </div>
 
       <div className={styles.scrollIndicator} aria-hidden="true">
-        <span className={styles.scrollText}>Scroll</span>
+        <span className={styles.scrollText}>{t("hero.scroll")}</span>
         <span className={styles.scrollLine} />
         <span className={styles.scrollArrow}>↓</span>
       </div>

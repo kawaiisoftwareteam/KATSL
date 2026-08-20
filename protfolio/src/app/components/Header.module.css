@@ -22,8 +22,53 @@
   justify-self: center;
 }
 
-.navContainer > .ctaBtn {
+.navContainer > .rightActions {
   justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.langSwitch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  background: #c81e32;
+  color: #ffffff;
+  white-space: nowrap;
+  user-select: none;
+  box-sizing: border-box;
+  min-height: 46px;
+}
+
+.langBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.langBtn:hover,
+.langBtnActive {
+  opacity: 1;
+}
+
+.langDivider {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1;
 }
 
 .logo {
@@ -95,6 +140,11 @@
   font-size: 0.9rem;
   border: 1px solid var(--color-black);
   cursor: pointer;
+  box-sizing: border-box;
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
 }
 
@@ -211,14 +261,18 @@
 
 @media (max-width: 1024px) {
   .navContainer {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr auto auto;
     height: 72px;
-    gap: 1rem;
+    gap: 0.75rem;
   }
 
   .navContainer > nav,
-  .navContainer > .ctaBtn {
+  .navContainer > .rightActions .ctaBtn {
     display: none;
+  }
+
+  .navContainer > .rightActions {
+    display: flex;
   }
 
   .logo {

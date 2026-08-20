@@ -1,15 +1,19 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import { optimizedBlur, optimizedSrc } from "@/lib/site-images";
+import { useI18n } from "@/lib/i18n";
 import styles from "./Team.module.css";
 
 export default function Team({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
   const Heading = headingLevel;
+  const { t } = useI18n();
   const members = [
     {
       name: "Dewan Samir",
-      role: "Chief Executive Officer",
-      bio: "CEO of Kawaii Group spanning Information Technology, Human Resources, Manpower Export, Apparel, Automobile, Real Estate, and Consultant for Foreign Direct Investments & Trading in Bangladesh.",
+      role: t("team.role"),
+      bio: t("team.bio"),
       image: "/Dewan Samir.jpeg",
       linkedin: "https://www.linkedin.com/in/dewan-samir/",
       email: "dewan.samir2010@gmail.com",
@@ -20,10 +24,10 @@ export default function Team({ headingLevel = "h2" }: { headingLevel?: "h1" | "h
     <section id="team" className={`${styles.team} scroll-reveal`}>
       <div className="container">
         <div className={styles.titleSection}>
-          <Heading className={styles.title}>Our Team</Heading>
+          <Heading className={styles.title}>{t("team.title")}</Heading>
           <span className={styles.titleLine}></span>
           <p className={styles.subtitle}>
-            Meet the engineers, designers, and strategists behind Kawaii Advance Technology & Software Ltd. (KATSL). We are dedicated to building robust digital infrastructure.
+            {t("team.subtitle")}
           </p>
         </div>
 

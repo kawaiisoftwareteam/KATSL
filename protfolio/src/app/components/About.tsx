@@ -3,34 +3,20 @@
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { ABOUT_IMAGE_SOURCE, optimizedBlur, optimizedSrc } from "@/lib/site-images";
+import { useI18n } from "@/lib/i18n";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import styles from "./About.module.css";
 
-const PILLARS = [
-  {
-    index: "01",
-    title: "Innovation",
-    description:
-      "Pioneering modern architectures and AI integrations to keep your enterprise ahead of the curve.",
-  },
-  {
-    index: "02",
-    title: "Quality",
-    description:
-      "Clean code, automated testing, and responsive performance for robust product stability.",
-  },
-  {
-    index: "03",
-    title: "Reliability",
-    description:
-      "On-time delivery, clear documentation, and 24/7 monitoring to scale your operations.",
-  },
-] as const;
-
 export default function About({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
   const Heading = headingLevel;
+  const { t } = useI18n();
+  const PILLARS = [
+    { index: "01", title: t("about.p1Title"), description: t("about.p1Desc") },
+    { index: "02", title: t("about.p2Title"), description: t("about.p2Desc") },
+    { index: "03", title: t("about.p3Title"), description: t("about.p3Desc") },
+  ];
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -223,7 +209,7 @@ export default function About({ headingLevel = "h2" }: { headingLevel?: "h1" | "
       <div className={styles.topCurve} aria-hidden="true" />
 
       <span className={styles.watermark} aria-hidden="true">
-        About
+        {t("about.watermark")}
       </span>
 
       <div className="container">
@@ -232,17 +218,13 @@ export default function About({ headingLevel = "h2" }: { headingLevel?: "h1" | "
             <div className={styles.redBar} aria-hidden="true" />
 
             <div className={styles.contentInner}>
-              <span className={styles.eyebrow}>Who We Are</span>
+              <span className={styles.eyebrow}>{t("about.eyebrow")}</span>
               <Heading id="about-title" className={styles.title}>
-                Engineering <span className={styles.highlight}>excellence</span> for ambitious
-                brands
+                {t("about.titleBefore")}
+                <span className={styles.highlight}>{t("about.titleHighlight")}</span>
+                {t("about.titleAfter")}
               </Heading>
-              <p className={styles.introText}>
-                Kawaii Advanced Technology &amp; Solution Ltd (KATSL), also known as Kawaii
-                Advanced and Kawaii Advanced Technology, delivers scalable software solutions
-                for modern businesses. We bridge the gap between complex engineering challenges
-                and elegant digital products.
-              </p>
+              <p className={styles.introText}>{t("about.intro")}</p>
 
               <div className={styles.pillarList}>
                 {PILLARS.map((pillar) => (
@@ -274,7 +256,7 @@ export default function About({ headingLevel = "h2" }: { headingLevel?: "h1" | "
                     />
                   </defs>
                   <text className={styles.spinText}>
-                    <textPath href="#aboutSpinPath">who we are • who we are • who we are •</textPath>
+                    <textPath href="#aboutSpinPath">{t("about.spin")}</textPath>
                   </text>
                 </svg>
                 <span className={styles.spinCenter}>✦</span>
@@ -284,7 +266,7 @@ export default function About({ headingLevel = "h2" }: { headingLevel?: "h1" | "
                 <div className={styles.mediaInner}>
                   <Image
                     src={optimizedSrc(ABOUT_IMAGE_SOURCE)}
-                    alt="Developer reviewing code with a global digital network overlay"
+                    alt={t("about.imageAlt")}
                     fill
                     loading="lazy"
                     placeholder="blur"
@@ -300,7 +282,7 @@ export default function About({ headingLevel = "h2" }: { headingLevel?: "h1" | "
 
               <div className={styles.experienceBadge}>
                 <span className={styles.badgeValue}>5+</span>
-                <span className={styles.badgeLabel}>Years of trusted delivery</span>
+                <span className={styles.badgeLabel}>{t("about.years")}</span>
               </div>
             </div>
           </div>

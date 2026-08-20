@@ -1,10 +1,14 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import { LOGO_SOURCE, optimizedBlur, optimizedSrc } from "@/lib/site-images";
+import { useI18n } from "@/lib/i18n";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { t } = useI18n();
 
   return (
     <footer className={styles.footer}>
@@ -24,12 +28,12 @@ export default function Footer() {
               />
             </span>
             <p className={styles.copyright} style={{ maxWidth: "420px", marginBottom: "1rem" }}>
-              Kawaii Advance Technology & Solution Limited is a registered enterprise software development company delivering premium engineering systems.
+              {t("footer.blurb")}
             </p>
           </div>
 
           <div className={styles.contactInfo}>
-            <h4 className={styles.infoTitle}>Bangladesh Office</h4>
+            <h4 className={styles.infoTitle}>{t("footer.office")}</h4>
             <div className={styles.contactItems}>
               <a href="tel:+8801901850570" className={styles.contactItem}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -57,7 +61,7 @@ export default function Footer() {
 
         <div className={styles.bottomBar}>
           <p className={styles.copyright}>
-            &copy; {currentYear} Kawaii Advance Technology & Solution Limited. All rights reserved.
+            &copy; {currentYear} Kawaii Advanced Technology & Solution Ltd. {t("footer.rights")}
           </p>
           <ul className={styles.socialList}>
             <li>

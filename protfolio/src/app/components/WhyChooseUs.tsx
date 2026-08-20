@@ -1,28 +1,32 @@
+"use client";
+
 import React from "react";
 import styles from "./WhyChooseUs.module.css";
+import { useI18n } from "@/lib/i18n";
 
 export default function WhyChooseUs({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
   const Heading = headingLevel;
+  const { t } = useI18n();
   const stats = [
     {
       number: "50+",
-      label: "Projects",
-      sublabel: "Delivered successfully",
+      label: t("why.s1"),
+      sublabel: t("why.s1sub"),
     },
     {
       number: "20+",
-      label: "Clients",
-      sublabel: "Global enterprise partners",
+      label: t("why.s2"),
+      sublabel: t("why.s2sub"),
     },
     {
       number: "99%",
-      label: "Satisfaction",
-      sublabel: "Client retention rate",
+      label: t("why.s3"),
+      sublabel: t("why.s3sub"),
     },
     {
       number: "24/7",
-      label: "Support",
-      sublabel: "Continuous site uptime monitoring",
+      label: t("why.s4"),
+      sublabel: t("why.s4sub"),
     },
   ];
 
@@ -32,11 +36,11 @@ export default function WhyChooseUs({ headingLevel = "h2" }: { headingLevel?: "h
         <div className={styles.grid}>
           <div>
             <Heading className={styles.title}>
-              Why <br />
+              {t("why.title")} <br />
               <span className={styles.titleRed}>Kawaii</span>
             </Heading>
             <p className={styles.description}>
-              We combine robust engineering practices with modern aesthetics to deliver software that doesn't just work, but scales and empowers your enterprise.
+              {t("why.description")}
             </p>
           </div>
 

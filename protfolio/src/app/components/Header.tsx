@@ -5,9 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LOGO_SOURCE, optimizedBlur, optimizedSrc } from "@/lib/site-images";
+import { useI18n } from "@/lib/i18n";
 import styles from "./Header.module.css";
 
 export default function Header() {
+  const { t, lang, setLang } = useI18n();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
@@ -43,46 +45,65 @@ export default function Header() {
             <ul className={styles.navList}>
               <li>
                 <Link href="/about" className={styles.navLink}>
-                  Who We Are
+                  {t("nav.about")}
                 </Link>
               </li>
               <li>
                 <Link href="/services" className={styles.navLink}>
-                  Services
+                  {t("nav.services")}
                 </Link>
               </li>
               <li>
                 <Link href="/work" className={styles.navLink}>
-                  Selected Work
+                  {t("nav.work")}
                 </Link>
               </li>
               <li>
                 <Link href="/why-us" className={styles.navLink}>
-                  Why Us
+                  {t("nav.whyUs")}
                 </Link>
               </li>
               <li>
                 <Link href="/team" className={styles.navLink}>
-                  Our Team
+                  {t("nav.team")}
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className={styles.navLink}>
-                  Contact
+                  {t("nav.contact")}
                 </Link>
               </li>
             </ul>
           </nav>
 
-          <Link href="/contact#contact" className={styles.ctaBtn} onClick={handleLetsTalkClick}>
-            Let's Talk
-          </Link>
+          <div className={styles.rightActions}>
+            <Link href="/contact#contact" className={styles.ctaBtn} onClick={handleLetsTalkClick}>
+              {t("nav.letsTalk")}
+            </Link>
+            <div className={styles.langSwitch} aria-label="Language">
+              <button
+                type="button"
+                className={`${styles.langBtn} ${lang === "en" ? styles.langBtnActive : ""}`}
+                onClick={() => setLang("en")}
+              >
+                EN
+              </button>
+              <span className={styles.langDivider}>/</span>
+              <button
+                type="button"
+                className={`${styles.langBtn} ${lang === "ja" ? styles.langBtnActive : ""}`}
+                onClick={() => setLang("ja")}
+              >
+                JP
+              </button>
+            </div>
+          </div>
 
           <button
             type="button"
             className={`${styles.menuBtn} ${isMenuOpen ? styles.menuBtnActive : ""}`}
             onClick={toggleMenu}
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-label={isMenuOpen ? t("nav.closeMenu") : t("nav.openMenu")}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-nav"
           >
@@ -107,32 +128,32 @@ export default function Header() {
         <ul className={styles.mobileNavList}>
           <li>
             <Link href="/about" className={styles.mobileNavLink} onClick={closeMenu}>
-              Who We Are
+              {t("nav.about")}
             </Link>
           </li>
           <li>
             <Link href="/services" className={styles.mobileNavLink} onClick={closeMenu}>
-              Services
+              {t("nav.services")}
             </Link>
           </li>
           <li>
             <Link href="/work" className={styles.mobileNavLink} onClick={closeMenu}>
-              Selected Work
+              {t("nav.work")}
             </Link>
           </li>
           <li>
             <Link href="/why-us" className={styles.mobileNavLink} onClick={closeMenu}>
-              Why Us
+              {t("nav.whyUs")}
             </Link>
           </li>
           <li>
             <Link href="/team" className={styles.mobileNavLink} onClick={closeMenu}>
-              Our Team
+              {t("nav.team")}
             </Link>
           </li>
           <li>
             <Link href="/contact" className={styles.mobileNavLink} onClick={closeMenu}>
-              Contact
+              {t("nav.contact")}
             </Link>
           </li>
         </ul>
@@ -145,7 +166,7 @@ export default function Header() {
             closeMenu();
           }}
         >
-          Let's Talk
+          {t("nav.letsTalk")}
         </Link>
       </div>
     </>

@@ -2,9 +2,11 @@
 
 import React, { useState } from "react";
 import styles from "./Contact.module.css";
+import { useI18n } from "@/lib/i18n";
 
 export default function Contact({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
   const Heading = headingLevel;
+  const { t } = useI18n();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -33,14 +35,14 @@ export default function Contact({ headingLevel = "h2" }: { headingLevel?: "h1" |
       const result = (await response.json()) as { error?: string };
 
       if (!response.ok) {
-        throw new Error(result.error || "Failed to send your message.");
+        throw new Error(result.error || t("contact.error"));
       }
 
       setStatus("success");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       setStatus("error");
-      setErrorMessage(error instanceof Error ? error.message : "Something went wrong. Please try again.");
+      setErrorMessage(error instanceof Error ? error.message : t("contact.error"));
     }
   };
 
@@ -50,28 +52,28 @@ export default function Contact({ headingLevel = "h2" }: { headingLevel?: "h1" |
         <div className={styles.grid}>
           <div className={styles.titleSection}>
             <Heading className={styles.title}>
-              Let's Build <br />
-              Something Great
+              {t("contact.titleLine1")} <br />
+              {t("contact.titleLine2")}
             </Heading>
             <span className={styles.titleLine}></span>
             <p className={styles.subtitle}>
-              Ready to scale your next digital product? Contact us today to discuss your software engineering, cloud architecture, or custom AI needs.
+              {t("contact.subtitle")}
             </p>
           </div>
 
           <div>
             {status === "success" ? (
               <div className={styles.successMessage}>
-                <h3 className={styles.successTitle}>Project Request Submitted!</h3>
+                <h3 className={styles.successTitle}>{t("contact.successTitle")}</h3>
                 <p className={styles.successText}>
-                  Thank you for reaching out. An enterprise advisor from our team will email you within 1 business day.
+                  {t("contact.successText")}
                 </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.formGroup}>
                   <label htmlFor="name" className={styles.label}>
-                    Name
+                    {t("contact.name")}
                   </label>
                   <input
                     type="text"
@@ -81,13 +83,13 @@ export default function Contact({ headingLevel = "h2" }: { headingLevel?: "h1" |
                     onChange={handleChange}
                     className={styles.input}
                     required
-                    placeholder="Your Full Name"
+                    placeholder={t("contact.namePlaceholder")}
                   />
                 </div>
 
                 <div className={styles.formGroup}>
                   <label htmlFor="email" className={styles.label}>
-                    Email Address
+                    {t("contact.email")}
                   </label>
                   <input
                     type="email"
@@ -103,7 +105,7 @@ export default function Contact({ headingLevel = "h2" }: { headingLevel?: "h1" |
 
                 <div className={styles.formGroup}>
                   <label htmlFor="message" className={styles.label}>
-                    Project Details
+                    {t("contact.details")}
                   </label>
                   <textarea
                     id="message"
@@ -112,7 +114,7 @@ export default function Contact({ headingLevel = "h2" }: { headingLevel?: "h1" |
                     onChange={handleChange}
                     className={styles.textarea}
                     required
-                    placeholder="Tell us about your product goals, engineering stack, or consulting requirements."
+                    placeholder={t("contact.detailsPlaceholder")}
                   />
                 </div>
 
@@ -121,7 +123,7 @@ export default function Contact({ headingLevel = "h2" }: { headingLevel?: "h1" |
                   disabled={status === "submitting"}
                   className={styles.submitBtn}
                 >
-                  {status === "submitting" ? "Sending..." : "Start Your Project"}
+                  {status === "submitting" ? t("contact.sending") : t("contact.submit")}
                   {status !== "submitting" && (
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <line x1="5" y1="12" x2="19" y2="12" />

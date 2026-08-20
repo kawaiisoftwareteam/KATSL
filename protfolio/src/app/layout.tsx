@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Alfa_Slab_One, Black_Ops_One, Montserrat } from "next/font/google";
 import ScrollRevealInitializer from "./components/ScrollRevealInitializer";
+import { LanguageProvider } from "@/lib/i18n";
 import { HERO_IMAGES, LOGO_SOURCE, optimizedSrc } from "@/lib/site-images";
 import "@fontsource-variable/mozilla-headline/wght.css";
 import "./globals.css";
@@ -150,7 +151,7 @@ export default function RootLayout({
       </head>
       <body className={montserrat.className} suppressHydrationWarning>
         <ScrollRevealInitializer />
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

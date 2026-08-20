@@ -1,15 +1,19 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import styles from "./Services.module.css";
+import { useI18n } from "@/lib/i18n";
 
 export default function Services({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
   const Heading = headingLevel;
+  const { t } = useI18n();
   const servicesList = [
     {
       number: "01",
-      title: "Web Development",
+      title: t("services.s1Title"),
       image: "/services/web_development.png",
-      description: "Scale your reach with premium frontends and secure backends built using Next.js, React, and robust API frameworks.",
+      description: t("services.s1Desc"),
       tags: ["Next.js", "React", "TypeScript", "REST/GraphQL"],
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -21,9 +25,9 @@ export default function Services({ headingLevel = "h2" }: { headingLevel?: "h1" 
     },
     {
       number: "02",
-      title: "Mobile Apps",
+      title: t("services.s2Title"),
       image: "/services/mobile_apps.png",
-      description: "Deliver high-fidelity cross-platform applications built on React Native with smooth navigation and native experiences.",
+      description: t("services.s2Desc"),
       tags: ["React Native", "iOS & Android", "Expo", "Mobile UI"],
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -34,9 +38,9 @@ export default function Services({ headingLevel = "h2" }: { headingLevel?: "h1" 
     },
     {
       number: "03",
-      title: "UI/UX Design",
+      title: t("services.s3Title"),
       image: "/services/ui_ux_design.png",
-      description: "Craft premium digital design assets, prototypes, and user experiences that align perfectly with enterprise brand structures.",
+      description: t("services.s3Desc"),
       tags: ["Figma", "Design Systems", "User Research", "Wireframing"],
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -47,9 +51,9 @@ export default function Services({ headingLevel = "h2" }: { headingLevel?: "h1" 
     },
     {
       number: "04",
-      title: "Cloud Solutions",
+      title: t("services.s4Title"),
       image: "/services/cloud_solutions.png",
-      description: "Deploy scalable, zero-downtime, secure architectures on AWS, GCP, and Vercel. Optimize infrastructure budgets.",
+      description: t("services.s4Desc"),
       tags: ["AWS", "GCP", "Docker", "DevOps & CI/CD"],
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -59,9 +63,9 @@ export default function Services({ headingLevel = "h2" }: { headingLevel?: "h1" 
     },
     {
       number: "05",
-      title: "AI Integration",
+      title: t("services.s5Title"),
       image: "/services/ai_integration.png",
-      description: "Implement custom LLM logic, vector databases, search intelligence, and specialized agent tools into your business tools.",
+      description: t("services.s5Desc"),
       tags: ["LLM Agents", "OpenAI & Gemini", "Vector DB", "RAG Pipeline"],
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -79,9 +83,9 @@ export default function Services({ headingLevel = "h2" }: { headingLevel?: "h1" 
     },
     {
       number: "06",
-      title: "Software Consulting",
+      title: t("services.s6Title"),
       image: "/services/software_consulting.png",
-      description: "Analyze workflows, audit existing codebases, plan technical migrations, and refine engineering architectures.",
+      description: t("services.s6Desc"),
       tags: ["Code Audit", "Architecture", "Tech Migration", "Strategy"],
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -99,14 +103,16 @@ export default function Services({ headingLevel = "h2" }: { headingLevel?: "h1" 
       <div className="container">
         <div className={styles.headerWrapper}>
           <div className={styles.titleSection}>
-            <span className={styles.badge}>WHAT WE DO</span>
+            <span className={styles.badge}>{t("services.badge")}</span>
             <Heading className={styles.title}>
-              Engineering Excellence <span className="text-brand">&amp;</span> Innovation
+              {t("services.titleBefore")}
+              <span className="text-brand">&amp;</span>
+              {t("services.titleAfter")}
             </Heading>
             <span className={styles.titleLine}></span>
           </div>
           <p className={styles.subtitle}>
-            We craft high-performance digital products, scalable cloud systems, and intelligent AI solutions tailored for enterprise growth.
+            {t("services.subtitle")}
           </p>
         </div>
 
@@ -142,7 +148,7 @@ export default function Services({ headingLevel = "h2" }: { headingLevel?: "h1" 
 
                 <div className={styles.cardFooter}>
                   <a href="#contact" className={styles.learnMore}>
-                    <span>Request Service</span>
+                    <span>{t("services.request")}</span>
                     <svg className={styles.arrowIcon} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <line x1="5" y1="12" x2="19" y2="12"></line>
                       <polyline points="12 5 19 12 12 19"></polyline>

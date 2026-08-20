@@ -1,29 +1,33 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import { optimizedBlur, optimizedSrc } from "@/lib/site-images";
+import { useI18n } from "@/lib/i18n";
 import styles from "./Projects.module.css";
 
 export default function Projects({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
   const Heading = headingLevel;
+  const { t } = useI18n();
   const projectsList = [
     {
       title: "Aura SaaS Platform",
-      tag: "Web App / Cloud",
-      description: "An enterprise analytical interface delivering real-time logs and user telemetry mapping on multi-tenant backends.",
+      tag: t("work.p1Tag"),
+      description: t("work.p1Desc"),
       image: "/project_enterprise.png",
       slug: "aura-saas-platform",
     },
     {
       title: "Velo Mobile Finance",
-      tag: "Mobile App",
-      description: "A secure banking portfolio platform built for instant transactions, ledger monitoring, and high-frequency queries.",
+      tag: t("work.p2Tag"),
+      description: t("work.p2Desc"),
       image: "/project_mobile.png",
       slug: "velo-mobile-finance",
     },
     {
       title: "Apex Agentic AI",
-      tag: "AI / Workflows",
-      description: "A visual customer-support automation workflow builder driven by secure on-device models and API hooks.",
+      tag: t("work.p3Tag"),
+      description: t("work.p3Desc"),
       image: "/project_ai.png",
       slug: "apex-agentic-ai",
     }
@@ -34,11 +38,11 @@ export default function Projects({ headingLevel = "h2" }: { headingLevel?: "h1" 
       <div className="container">
         <div className={styles.titleSection}>
           <div>
-            <Heading className={styles.title}>Selected Work</Heading>
+            <Heading className={styles.title}>{t("work.title")}</Heading>
             <span className={styles.titleLine}></span>
           </div>
           <p className={styles.subtitle}>
-            A curated showcase of scalable software platforms engineered for global reach and enterprise performance.
+            {t("work.subtitle")}
           </p>
         </div>
 
@@ -62,7 +66,7 @@ export default function Projects({ headingLevel = "h2" }: { headingLevel?: "h1" 
                 <h3 className={styles.cardTitle}>{project.title}</h3>
                 <p className={styles.cardDescription}>{project.description}</p>
                 <a href={`/projects/${project.slug}`} className={styles.link}>
-                  View Details
+                  {t("work.viewDetails")}
                   <svg className={styles.linkIcon} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12" />
                     <polyline points="12 5 19 12 12 19" />

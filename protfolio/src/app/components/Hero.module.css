@@ -117,6 +117,12 @@
   max-width: 100%;
 }
 
+.headlineJa .headlineLine {
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-size: clamp(2.6rem, 7.5vw, 6.2rem);
+}
+
 .solidWord {
   color: #ffffff;
   text-shadow:

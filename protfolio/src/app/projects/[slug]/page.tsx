@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { optimizedBlur, optimizedSrc } from "@/lib/site-images";
+import { T } from "@/lib/i18n";
 import styles from "./project-detail.module.css";
 
 interface ProjectFeature {
@@ -167,12 +168,12 @@ export default async function ProjectDetailPage({ params }: PageProps) {
         <Header />
         <main className={styles.notFound}>
           <div className="container">
-            <h1 className={styles.notFoundTitle}>Project Not Found</h1>
+            <h1 className={styles.notFoundTitle}><T k="project.notFound" /></h1>
             <p className={styles.notFoundText}>
-              The case study you are looking for does not exist or has been moved.
+              <T k="project.notFoundText" />
             </p>
             <Link href="/" className={styles.ctaBtn}>
-              Back to Home
+              <T k="project.backHome" />
             </Link>
           </div>
         </main>
@@ -194,7 +195,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                 <line x1="19" y1="12" x2="5" y2="12" />
                 <polyline points="12 19 5 12 12 5" />
               </svg>
-              Back to Projects
+              <T k="project.back" />
             </Link>
             
             <span className={styles.tag}>{project.tag}</span>
@@ -202,20 +203,20 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             
             <div className={styles.metaGrid}>
               <div className={styles.metaItem}>
-                <span className={styles.metaLabel}>Client</span>
+                <span className={styles.metaLabel}><T k="project.client" /></span>
                 <span className={styles.metaValue}>{project.client}</span>
               </div>
               <div className={styles.metaItem}>
-                <span className={styles.metaLabel}>Year</span>
+                <span className={styles.metaLabel}><T k="project.year" /></span>
                 <span className={styles.metaValue}>{project.year}</span>
               </div>
               <div className={styles.metaItem}>
-                <span className={styles.metaLabel}>Role</span>
+                <span className={styles.metaLabel}><T k="project.role" /></span>
                 <span className={styles.metaValue}>{project.role}</span>
               </div>
               <div className={styles.metaItem}>
-                <span className={styles.metaLabel}>Duration</span>
-                <span className={styles.metaValue}>3 Months</span>
+                <span className={styles.metaLabel}><T k="project.duration" /></span>
+                <span className={styles.metaValue}><T k="project.durationValue" /></span>
               </div>
             </div>
           </div>
@@ -241,11 +242,11 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                   />
                 </div>
                 
-                <h2 className={styles.sectionTitle}>Project Overview</h2>
+                <h2 className={styles.sectionTitle}><T k="project.overview" /></h2>
                 <p className={styles.overviewText}>{project.overview}</p>
                 
                 <div className={styles.featuresSection}>
-                  <h2 className={styles.sectionTitle}>Key Features Engineered</h2>
+                  <h2 className={styles.sectionTitle}><T k="project.features" /></h2>
                   <ul className={styles.featureList}>
                     {project.features.map((feature, idx) => (
                       <li key={idx} className={styles.featureItem}>
@@ -268,13 +269,13 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                       <line x1="12" y1="8" x2="12" y2="12" />
                       <line x1="12" y1="16" x2="12.01" y2="16" />
                     </svg>
-                    The Challenge
+                    <T k="project.challenge" />
                   </h3>
                   <p className={styles.challengeText}>{project.challenge}</p>
                 </div>
                 
                 <div className={styles.solutionBox}>
-                  <h3 className={styles.solutionTitle}>Our Engineering Solution</h3>
+                  <h3 className={styles.solutionTitle}><T k="project.solution" /></h3>
                   <p className={styles.solutionText}>{project.solution}</p>
                 </div>
               </div>
@@ -283,7 +284,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
               <div className={styles.sidebar}>
                 {/* Tech Stack Widget */}
                 <div className={styles.sidebarWidget}>
-                  <h3 className={styles.widgetTitle}>Technologies Used</h3>
+                  <h3 className={styles.widgetTitle}><T k="project.tech" /></h3>
                   <div className={styles.techGrid}>
                     {project.tech.map((techItem, idx) => (
                       <span key={idx} className={styles.techBadge}>
@@ -295,7 +296,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
                 {/* Metrics Widget */}
                 <div className={styles.sidebarWidget}>
-                  <h3 className={styles.widgetTitle}>Key Outcomes</h3>
+                  <h3 className={styles.widgetTitle}><T k="project.outcomes" /></h3>
                   <div className={styles.metricsGrid}>
                     {project.metrics.map((metric, idx) => (
                       <div key={idx} className={styles.metricCard}>
@@ -315,12 +316,12 @@ export default async function ProjectDetailPage({ params }: PageProps) {
         {/* CTA Section */}
         <section className={styles.ctaSection}>
           <div className="container">
-            <h2 className={styles.ctaTitle}>Ready to build something scalable?</h2>
+            <h2 className={styles.ctaTitle}><T k="project.ctaTitle" /></h2>
             <p className={styles.ctaDesc}>
-              Let's partner up to construct your next enterprise application, mobile suite, or custom AI agent system.
+              <T k="project.ctaDesc" />
             </p>
             <Link href="/contact" className={styles.ctaBtn}>
-              Let's Connect
+              <T k="project.cta" />
             </Link>
           </div>
         </section>

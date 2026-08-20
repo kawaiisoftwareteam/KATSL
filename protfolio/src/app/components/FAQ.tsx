@@ -1,43 +1,21 @@
 "use client";
 
 import React, { useState } from "react";
+import { useI18n } from "@/lib/i18n";
 import styles from "./FAQ.module.css";
 
-const faqs = [
-  {
-    question: "What services does KATSL provide?",
-    answer:
-      "We provide custom software development, SaaS solutions (including ERP), web and mobile app development, AI/ML integration, UI/UX design, cloud infrastructure, and offshore team augmentation.",
-  },
-  {
-    question: "Where are your offices located?",
-    answer:
-      "Our headquarters is in Dhaka, Bangladesh with additional offices in Tokyo, Japan; Montreal, Canada; and Kuala Lumpur, Malaysia.",
-  },
-  {
-    question: "What industries do you serve?",
-    answer:
-      "We serve enterprises, SMEs, and startups across fintech, healthcare, construction, e-commerce, real estate, and education sectors globally.",
-  },
-  {
-    question: "Do you offer offshore development or team augmentation?",
-    answer:
-      "Yes. We provide dedicated offshore development teams and staff augmentation services, allowing you to scale your engineering capacity without the overhead of in-house hiring.",
-  },
-  {
-    question: "What technologies do you specialize in?",
-    answer:
-      "Our team specializes in React, Next.js, Node.js, Python, Java, .NET, Flutter, cloud platforms (AWS, Azure, GCP), and AI/ML frameworks. We choose the best stack based on project requirements.",
-  },
-  {
-    question: "How do I get started with a project?",
-    answer:
-      "Reach out through our contact form or email us at info@kawaiibd.com. We'll schedule a discovery call to understand your requirements and propose a tailored solution.",
-  },
-];
-
 export default function FAQ() {
+  const { t } = useI18n();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const faqs = [
+    { question: t("faq.q1"), answer: t("faq.a1") },
+    { question: t("faq.q2"), answer: t("faq.a2") },
+    { question: t("faq.q3"), answer: t("faq.a3") },
+    { question: t("faq.q4"), answer: t("faq.a4") },
+    { question: t("faq.q5"), answer: t("faq.a5") },
+    { question: t("faq.q6"), answer: t("faq.a6") },
+  ];
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -47,10 +25,10 @@ export default function FAQ() {
     <section id="faq" className={`${styles.faq} scroll-reveal`}>
       <div className="container">
         <div className={styles.titleSection}>
-          <h2 className={styles.title}>FAQ</h2>
+          <h2 className={styles.title}>{t("faq.title")}</h2>
           <span className={styles.titleLine}></span>
           <p className={styles.subtitle}>
-            Common questions about our services, process, and company.
+            {t("faq.subtitle")}
           </p>
         </div>
 

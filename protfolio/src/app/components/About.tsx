@@ -238,9 +238,10 @@ export default function About({ headingLevel = "h2" }: { headingLevel?: "h1" | "
                 brands
               </Heading>
               <p className={styles.introText}>
-                A technology company delivering scalable software solutions for modern
-                businesses. We bridge the gap between complex engineering challenges and
-                elegant digital products.
+                Kawaii Advanced Technology &amp; Solution Ltd (KATSL), also known as Kawaii
+                Advanced and Kawaii Advanced Technology, delivers scalable software solutions
+                for modern businesses. We bridge the gap between complex engineering challenges
+                and elegant digital products.
               </p>
 
               <div className={styles.pillarList}>

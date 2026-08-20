@@ -28,9 +28,23 @@ const alfaSlabOne = Alfa_Slab_One({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kawaiitech.net"),
-  title: "Kawaii Advanced Technology & Solution Ltd | KATSL | Enterprise Software Development",
-  description: "Kawaii Advanced Technology & Solution Ltd (KATSL) is a Japan-Bangladesh joint venture specializing in custom software development, SaaS, ERP, mobile apps, AI/ML, and offshore team augmentation for global enterprises.",
-  keywords: "Kawaii Advanced Technology & Solution Ltd, KATSL, Kawaii Advanced Technology, kawaii tech, software development Bangladesh, enterprise software, app development, cloud infrastructure, AI solutions, offshore development Japan Bangladesh",
+  title: {
+    default: "Kawaii Advanced Technology & Solution Ltd | KATSL | Kawaii Advanced",
+    template: "%s | KATSL",
+  },
+  description:
+    "Kawaii Advanced Technology & Solution Ltd (KATSL), also known as Kawaii Advanced and Kawaii Advanced Technology, is a Japan-Bangladesh software company for custom web, mobile, cloud, AI, and offshore development. Official website: kawaiitech.net.",
+  keywords: [
+    "Kawaii Advanced Technology & Solution Ltd",
+    "Kawaii Advanced Technology and Solution Ltd",
+    "Kawaii Advanced Technology",
+    "Kawaii Advanced",
+    "KATSL",
+    "Kawaii Tech",
+    "kawaiitech.net",
+    "Kawaii Advanced Technology Bangladesh",
+    "Kawaii Advanced Technology Japan",
+  ],
   alternates: {
     canonical: "/",
   },
@@ -48,7 +62,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://kawaiitech.net",
-    siteName: "Kawaii Advanced Technology & Solution Ltd",
+    siteName: "Kawaii Advanced Technology & Solution Ltd (KATSL)",
     images: [{ url: "/icon.png", width: 192, height: 192 }],
   },
 };
@@ -65,6 +79,51 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://kawaiitech.net/#organization",
+                  name: "Kawaii Advanced Technology & Solution Ltd",
+                  legalName: "Kawaii Advanced Technology & Solution Ltd",
+                  alternateName: [
+                    "KATSL",
+                    "Kawaii Advanced",
+                    "Kawaii Advanced Technology",
+                    "Kawaii Advanced Technology and Solution Ltd",
+                    "Kawaii Advance Technology & Solution Limited",
+                  ],
+                  url: "https://kawaiitech.net",
+                  logo: "https://kawaiitech.net/icon.png",
+                  image: "https://kawaiitech.net/icon.png",
+                  email: "info@kawaiibd.com",
+                  telephone: "+8801901850570",
+                  sameAs: ["https://www.linkedin.com/company/katsl/"],
+                  address: {
+                    "@type": "PostalAddress",
+                    streetAddress: "Suite-2A, House # 11, Block-B, Main Road, Banasree, Rampura",
+                    addressLocality: "Dhaka",
+                    postalCode: "1219",
+                    addressCountry: "BD",
+                  },
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://kawaiitech.net/#website",
+                  url: "https://kawaiitech.net",
+                  name: "Kawaii Advanced Technology & Solution Ltd",
+                  alternateName: ["KATSL", "Kawaii Advanced", "Kawaii Advanced Technology"],
+                  publisher: { "@id": "https://kawaiitech.net/#organization" },
+                  inLanguage: "en",
+                },
+              ],
+            }),
+          }}
+        />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-8B1DDD8151"></script>
         <script
           dangerouslySetInnerHTML={{

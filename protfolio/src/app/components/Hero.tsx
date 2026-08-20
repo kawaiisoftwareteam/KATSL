@@ -207,13 +207,16 @@ export default function Hero() {
           </div>
 
           <div className={styles.heroContent}>
+            <p className={styles.brandName}>
+              Kawaii Advanced Technology &amp; Solution Ltd (KATSL)
+            </p>
             <h1 className={styles.headline}>
               <span className={`${styles.headlineLine} ${styles.solidWord}`}>with</span>
               <span className={`${styles.headlineLine} ${styles.outlineWord}`}>You,</span>
               <span className={`${styles.headlineLine} ${styles.solidWord}`}>we build</span>
             </h1>
             <p className={styles.tagline}>
-              Building digital products that drive growth — together.
+              Kawaii Advanced Technology — building digital products that drive growth, together.
             </p>
           </div>
         </div>

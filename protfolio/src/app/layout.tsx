@@ -29,14 +29,14 @@ const alfaSlabOne = Alfa_Slab_One({
 const favIconUrl = optimizedSrc(LOGO_SOURCE);
 
 export const metadata: Metadata = {
-  title: "Kawaii Advance Technology & Solution Limited | Enterprise Software & Digital Products",
-  description: "Kawaii Advance Technology & Solution Limited builds scalable web applications, mobile products, cloud architectures, and custom AI integrations for global enterprises.",
-  keywords: "Kawaii Advance Technology, KATSL, software engineering, enterprise software, app development, cloud infrastructure, AI solutions, web applications",
+  title: "Kawaii Advanced Technology & Solution Ltd | KATSL | Enterprise Software Development",
+  description: "Kawaii Advanced Technology & Solution Ltd (KATSL) is a Japan-Bangladesh joint venture specializing in custom software development, SaaS, ERP, mobile apps, AI/ML, and offshore team augmentation for global enterprises.",
+  keywords: "Kawaii Advanced Technology & Solution Ltd, KATSL, Kawaii Advanced Technology, kawaii tech, software development Bangladesh, enterprise software, app development, cloud infrastructure, AI solutions, offshore development Japan Bangladesh",
   icons: {
     icon: "/favicon.ico",
   },
   openGraph: {
-    title: "Kawaii Advance Technology & Solution Limited",
+    title: "Kawaii Advanced Technology & Solution Ltd | KATSL",
     description: "Building scalable digital products that drive growth. Enterprise-level custom software development.",
     type: "website",
     locale: "en_US",
@@ -55,6 +55,17 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-8B1DDD8151"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-8B1DDD8151');
+            `,
+          }}
+        />
         <link
           rel="preload"
           as="image"

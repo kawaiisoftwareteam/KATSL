@@ -5,7 +5,7 @@ import Services from "../components/Services";
 import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
-  title: "Our Services - Custom Software Engineering | Kawaii Advance Technology & Solution Limited",
+  title: "Our Services - Custom Software Engineering | Kawaii Advanced Technology & Solution Limited",
   description: "Explore enterprise software consulting, custom web application development, cross-platform mobile apps, cloud architectures, and AI integrations.",
   alternates: { canonical: "/services" },
 };

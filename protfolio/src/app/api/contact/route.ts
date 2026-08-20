@@ -137,7 +137,7 @@ export async function POST(request: Request) {
             </div>
 
             <p style="margin:18px 0 0; color:#666; font-size:13px; line-height:1.5;">
-              — Kawaii Advance Technology &amp; Solution Limited
+              — Kawaii Advanced Technology &amp; Solution Limited
             </p>
           </div>
         </div>

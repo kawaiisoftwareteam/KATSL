@@ -5,8 +5,8 @@ import WhyChooseUs from "../components/WhyChooseUs";
 import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
-  title: "Why Choose Us - High Scale Engineering | Kawaii Advance Technology & Solution Limited",
-  description: "Find out why global enterprises trust Kawaii Advance Technology & Solution Limited to design, build, and deploy custom software solutions.",
+  title: "Why Choose Us - High Scale Engineering | Kawaii Advanced Technology & Solution Limited",
+  description: "Find out why global enterprises trust Kawaii Advanced Technology & Solution Limited to design, build, and deploy custom software solutions.",
   alternates: { canonical: "/why-us" },
 };
 

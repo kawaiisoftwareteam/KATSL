@@ -146,13 +146,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   
   if (!project) {
     return {
-      title: "Project Not Found | Kawaii Advance Technology & Solution Limited",
+      title: "Project Not Found | Kawaii Advanced Technology & Solution Limited",
       description: "The requested project case study could not be found.",
     };
   }
 
   return {
-    title: `${project.title} - Case Study | Kawaii Advance Technology & Solution Limited`,
+    title: `${project.title} - Case Study | Kawaii Advanced Technology & Solution Limited`,
     description: project.overview,
     alternates: { canonical: `/projects/${slug}` },
   };

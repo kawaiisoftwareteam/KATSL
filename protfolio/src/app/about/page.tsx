@@ -5,8 +5,8 @@ import About from "../components/About";
 import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
-  title: "Who We Are - About Us | Kawaii Advance Technology & Solution Limited",
-  description: "Learn more about Kawaii Advance Technology & Solution Limited, our mission of innovation, quality standards, and digital product reliability.",
+  title: "Who We Are - About Us | Kawaii Advanced Technology & Solution Limited",
+  description: "Learn more about Kawaii Advanced Technology & Solution Limited, our mission of innovation, quality standards, and digital product reliability.",
   alternates: { canonical: "/about" },
 };
 
